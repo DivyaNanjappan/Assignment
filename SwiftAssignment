@@ -1,0 +1,24 @@
+//Assignment 3
+let num: [Int] = [1, 10, 2, 3, 1222, 2, 5, 6, 1222, 2]
+
+let duplicates = Array(Set(num.filter({ (i: Int) in num.filter({ $0 == i }).count > 1})))
+
+//No Of Duplicates in List
+
+print("No of Duplicates in List = \(duplicates.count)")
+
+//No of times each duplicate repeated in list
+
+for index in 0..<duplicates.count{
+  let value: Int! = duplicates[index]
+  print("\(value!) Occured \(num.filter { $0 == value }.count) times.")
+}
+
+for index in 0..<duplicates.count{
+  let value = duplicates[index]
+  for innerIndex in 0..<num.count{
+    if(num[innerIndex] == value){
+      print("Index of \(value) = \(innerIndex)")
+    }
+  }
+}
